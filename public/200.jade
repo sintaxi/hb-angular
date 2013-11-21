@@ -1,0 +1,16 @@
+!!!
+html
+  head
+    meta(name="viewport", content="width=device-width")
+    link(rel="stylesheet", type="text/css", href="css/main.css")
+    if environment == "production"
+      script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js")
+    else
+      script(type="text/javascript", src="js/angular.js")
+    script(type="text/javascript", src="app/app.js")
+  body
+    section(ng-app)
+      .container
+        h1 Hello {{ data.place || "AngularJS" }}
+        h3 Where are you from?
+        input(ng-model="data.place", placeholder="World")

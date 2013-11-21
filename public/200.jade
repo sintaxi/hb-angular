@@ -11,6 +11,8 @@ html
   body
     section(ng-app)
       .container
-        h1 Hello {{ data.place || "AngularJS" }}
-        h3 Where are you from?
-        input(ng-model="data.place", placeholder="World")
+        .row
+          .span-sm-12
+            h1 Hello {{ data.place || "AngularJS" }}
+            h3 Where are you from? &nbsp;
+              input(ng-model="data.place", placeholder="World")

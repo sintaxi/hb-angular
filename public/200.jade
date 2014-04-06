@@ -8,15 +8,21 @@ html
     else
       script(type="text/javascript", src="js/angular.js")
     script(type="text/javascript", src="js/app.js")
-  body
-    section(ng-app)
+  body(ng-app="ToDoApp")
+    section(ng-controller="crud")
       .container
         .row
-          .span-sm-12
-            h1 Hello {{ data.place || "AngularJS" }}
-            h3 Where are you from? &nbsp;
-              input(ng-model="data.place", placeholder="World")
-            hr
-            .row
-              .col-sm-4.col-sm-offset-4
-                a.btn.btn-primary.btn-lg.btn-block(href="https://www.harp.io/apps/new?boilerplate=sintaxi/hb-angular") Ship on Harp Platform
+          .col-sm-6
+            ul
+              li(ng-repeat="item in items")
+                | {{ item.msg }}
+                a(href="", ng-click="remove()") x
+          .col-sm-6
+            ul
+              li(ng-repeat="item in items") {{ item.msg }}
+    section(ng-controller="crud")
+      .container
+        .row
+          .col-sm-12
+            form(ng-submit="add()")
+              input(ng-model="item.msg", placeholder="World")
